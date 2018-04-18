@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Decart Component is another way to declare your component.",
   "keywords": [],
-  "homepage": "https://codesandbox.io/s/new",
+  "homepage": "https://gokalina.github.io/decart-examples/",
   "main": "src/index.js",
   "dependencies": {
     "lodash.range": "3.2.0",

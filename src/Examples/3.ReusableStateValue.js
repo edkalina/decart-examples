@@ -1,21 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import { createComponent, stateValue } from "../decart-react";
+import React from 'react';
+import styled from 'styled-components';
+import { createComponent, stateValue } from '../decart-react';
 
-const openable = () =>
-  stateValue(
-    { opened: false },
-    {
-      open: () => () => ({ opened: true }),
-      close: () => () => ({ opened: false }),
-      toggle: ({ opened }) => () => ({ opened: !opened })
-    }
-  );
+// define it once...
+const openable = stateValue(
+  { opened: false },
+  {
+    open: () => () => ({ opened: true }),
+    close: () => () => ({ opened: false }),
+    toggle: ({ opened }) => () => ({ opened: !opened }),
+  },
+);
 
 export default createComponent(
   {
-    menu: openable(),
-    hint: openable()
+    // ...and use anywhere
+    menu: openable,
+    hint: openable,
   },
   ({ menu, hint }) => (
     <div>
@@ -25,16 +26,14 @@ export default createComponent(
         </div>
         {hint.opened && (
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            vehicula commodo leo, eget auctor felis ullamcorper finibus. Vivamus
-            consectetur sapien est, sit amet mollis libero tempor sed. Sed orci
-            libero, cursus in dictum sed, congue ut orci. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-            Nullam leo urna, congue nec convallis id, finibus ut augue. Duis
-            ante tortor, interdum vitae lorem sit amet, facilisis accumsan
-            nulla. Phasellus sed erat non tortor accumsan congue. Vestibulum
-            venenatis arcu sit amet sollicitudin dictum. Nulla ultrices sit amet
-            tortor nec lobortis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula commodo leo, eget
+            auctor felis ullamcorper finibus. Vivamus consectetur sapien est, sit amet mollis libero
+            tempor sed. Sed orci libero, cursus in dictum sed, congue ut orci. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam leo urna,
+            congue nec convallis id, finibus ut augue. Duis ante tortor, interdum vitae lorem sit
+            amet, facilisis accumsan nulla. Phasellus sed erat non tortor accumsan congue.
+            Vestibulum venenatis arcu sit amet sollicitudin dictum. Nulla ultrices sit amet tortor
+            nec lobortis.
           </p>
         )}
       </HintContainer>
@@ -51,7 +50,7 @@ export default createComponent(
         </Menu>
       )}
     </div>
-  )
+  ),
 );
 
 const Menu = styled.div`

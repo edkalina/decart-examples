@@ -5,7 +5,9 @@ import { createComponent, stateValue } from "../decart-react";
 export default createComponent(
   {
     menu: stateValue(
+      // initial state
       { opened: false },
+      // handlers for state
       {
         open: () => () => ({ opened: true }),
         close: () => () => ({ opened: false }),
@@ -13,6 +15,7 @@ export default createComponent(
       }
     )
   },
+  // your function will get all props + values defined above
   ({ menu }) => (
     <div>
       <div>

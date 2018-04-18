@@ -1,9 +1,9 @@
 import React from "react";
-// import styled from "styled-components";
 import { createComponent, handlers } from "../decart-react";
 
 export default createComponent(
   {
+    // also you can use `handlers` to group all handlers
     ...handlers({
       onFirstClick: vals => e => {
         alert("First button clicked");

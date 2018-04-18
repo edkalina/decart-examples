@@ -10,6 +10,7 @@ export default createComponent(
         onChange: () => e => ({ value: e.target.value })
       }
     ),
+    // you can group values too
     ...values({
       rads: ({ degrees }) => degrees.value * Math.PI / 180,
       gons: ({ degrees }) => degrees.value * 10 / 9,

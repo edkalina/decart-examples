@@ -1,9 +1,9 @@
 import React from "react";
-// import styled from "styled-components";
 import { createComponent, handler } from "../decart-react";
 
 export default createComponent(
   {
+    // it is very similar to recompose/withHandlers
     onClick: handler(vals => e => {
       alert("Button clicked");
     })
